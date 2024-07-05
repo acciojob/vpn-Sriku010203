@@ -2,24 +2,20 @@ package com.driver.model;
 
 import javax.persistence.*;
 import java.util.List;
-
 @Entity
 public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
+    private Long id;
     private String username;
     private String password;
 
-    @OneToMany(mappedBy = "admin",cascade = CascadeType.ALL)
-    List<ServiceProvider> serviceProviders;
-
-    public int getId() {
+    // Getters and Setters
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -37,13 +33,5 @@ public class Admin {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public List<ServiceProvider> getServiceProviders() {
-        return serviceProviders;
-    }
-
-    public void setServiceProviders(List<ServiceProvider> serviceProviders) {
-        this.serviceProviders = serviceProviders;
     }
 }
